@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda 0001, apricancello | 12042 riparato a Bra</title>
+<meta name="description" content="Storia della riparazione n. 0001: un apricancello rimesso in funzione a Bra.">
+<style>
+  :root {
+    --carta: #f1f3f0;
+    --foglio: #fbfcfa;
+    --inchiostro: #1b1e2b;
+    --grigio: #5a6072;
+    --filo: #cfd4d6;
+    --timbro: #2f3a8f;
+    --collaudo: #256b4d;
+    --bozza: #8a5a00;
+    --bozza-fondo: #fbefcf;
+    --testo: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    --segni: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --carta: #14161c;
+      --foglio: #1b1e26;
+      --inchiostro: #e7e9ef;
+      --grigio: #a2a8b8;
+      --filo: #343947;
+      --timbro: #a3adff;
+      --collaudo: #7ed0a8;
+      --bozza: #f0c060;
+      --bozza-fondo: #3a2e10;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--carta);
+    color: var(--inchiostro);
+    font-family: var(--testo);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--timbro); text-underline-offset: 0.15em; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--timbro);
+    outline-offset: 3px;
+  }
+
+  .pagina {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+
+  /* Avviso di bozza: da togliere quando la scheda è completa */
+  .avviso-bozza {
+    font-family: var(--segni);
+    font-size: 0.875rem;
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    border-left: 4px solid var(--bozza);
+    padding: 0.6rem 0.9rem;
+    margin: 0 0 2rem;
+  }
+  .da-compilare {
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    border-bottom: 1px dashed var(--bozza);
+    padding: 0 0.2em;
+    font-style: normal;
+  }
+
+  /* Testata con il timbro */
+  .testata {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--inchiostro);
+  }
+  .numero {
+    font-family: var(--segni);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--timbro);
+    margin: 0 0 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  h1 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: clamp(2rem, 7vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem;
+  }
+  .sottotitolo { margin: 0; color: var(--grigio); max-width: 30rem; }
+  .timbro {
+    width: clamp(7.5rem, 26vw, 11rem);
+    height: auto;
+    color: var(--timbro);
+    transform: rotate(-7deg);
+    opacity: 0.92;
+  }
+  @media (max-width: 30rem) {
+    .testata { grid-template-columns: 1fr; }
+    .timbro { justify-self: end; margin-top: -1rem; }
+  }
+
+  h2 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    margin: 3rem 0 0.9rem;
+  }
+  p { margin: 0 0 1rem; max-width: 38rem; }
+
+  /* Dati dell’oggetto */
+  .dati {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 0;
+    margin: 2rem 0 0;
+    border-top: 1px solid var(--filo);
+  }
+  .dati div {
+    padding: 0.7rem 0.75rem 0.7rem 0;
+    border-bottom: 1px solid var(--filo);
+  }
+  .dati dt {
+    font-family: var(--segni);
+    font-size: 0.8125rem;
+    color: var(--grigio);
+  }
+  .dati dd { margin: 0; font-family: var(--segni); font-weight: 600; }
+
+  /* Sequenza del lavoro: è davvero una sequenza, quindi numerata */
+  .lavoro { list-style: none; counter-reset: passo; margin: 0; padding: 0; }
+  .lavoro li {
+    counter-increment: passo;
+    position: relative;
+    padding: 0 0 1.5rem 3rem;
+    border-left: 2px solid var(--filo);
+    margin-left: 1rem;
+  }
+  .lavoro li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .lavoro li::before {
+    content: counter(passo);
+    position: absolute;
+    left: -1.0625rem;
+    top: -0.1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--carta);
+    border: 2px solid var(--timbro);
+    color: var(--timbro);
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    display: grid;
+    place-items: center;
+  }
+  .lavoro h3 {
+    font-family: var(--segni);
+    font-size: 1.0625rem;
+    margin: 0 0 0.3rem;
+  }
+  .lavoro p { margin-bottom: 0; }
+
+  /* Tabella componenti */
+  .scorri { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--segni); font-size: 0.9375rem; }
+  th, td { text-align: left; padding: 0.55rem 0.75rem 0.55rem 0; border-bottom: 1px solid var(--filo); vertical-align: top; }
+  th { font-weight: 600; color: var(--grigio); font-size: 0.8125rem; }
+
+  /* Collaudo */
+  .collaudo { list-style: none; margin: 0; padding: 0; font-family: var(--segni); }
+  .collaudo li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr auto;
+    gap: 0.6rem;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--filo);
+  }
+  .collaudo .segno { font-weight: 700; color: var(--grigio); }
+  .collaudo .superato .segno { color: var(--collaudo); }
+  .collaudo .esito { font-size: 0.875rem; color: var(--grigio); }
+
+  .nota {
+    background: var(--foglio);
+    border: 1px solid var(--filo);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0 0;
+  }
+  .nota p:last-child { margin-bottom: 0; }
+
+  /* Foto */
+  .foto { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.75rem; }
+  .foto figure { margin: 0; }
+  .foto .riquadro {
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--bozza);
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    display: grid;
+    place-items: center;
+    font-family: var(--segni);
+    font-size: 0.8125rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  .foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .foto figcaption { font-family: var(--segni); font-size: 0.8125rem; color: var(--grigio); margin-top: 0.35rem; }
+
+  /* Impatto */
+  .impatto { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.5rem; margin: 0; }
+  .impatto dt { font-family: var(--segni); font-size: 0.875rem; color: var(--grigio); }
+  .impatto dd { margin: 0; font-family: var(--segni); font-size: 1.75rem; font-weight: 700; line-height: 1.2; }
+
+  /* Etichetta */
+  .etichetta {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    gap: 0.9rem;
+    align-items: center;
+    background: #fff;
+    color: #14161c;
+    border: 1px solid #14161c;
+    border-radius: 4px;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--segni);
+  }
+  .etichetta svg { width: 5.5rem; height: 5.5rem; display: block; }
+  .etichetta strong { display: block; font-size: 1.5rem; line-height: 1; letter-spacing: 0.04em; }
+  .etichetta span { display: block; font-size: 0.75rem; margin-top: 0.3rem; }
+  .etichetta .serie { font-size: 1rem; font-weight: 700; margin-top: 0.5rem; }
+
+  details { margin-top: 1rem; }
+  summary { cursor: pointer; font-family: var(--segni); font-weight: 600; }
+  pre {
+    overflow-x: auto;
+    background: var(--foglio);
+    border: 1px solid var(--filo);
+    padding: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--inchiostro);
+    font-family: var(--segni);
+    font-size: 0.875rem;
+    color: var(--grigio);
+  }
+  footer p { margin-bottom: 0.4rem; }
+
+  @media print {
+    body { background: #fff; }
+    .avviso-bozza, details { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <p class="avviso-bozza">Bozza. Le parti evidenziate sono da compilare con i dati reali della riparazione.</p>
+
+  <header class="testata">
+    <div>
+      <p class="numero">Scheda n. 0001</p>
+      <h1>Apricancello</h1>
+      <p class="sottotitolo">Questo oggetto è stato riparato a mano invece di essere sostituito. Qui c’è scritto cosa aveva, cosa è stato fatto e da chi.</p>
+    </div>
+
+    <!-- Il timbro: firma dell’attività. Data e numero cambiano a ogni scheda. -->
+    <svg class="timbro" viewBox="0 0 200 200" role="img" aria-label="Timbro 12042, riparato con passione, n. 0001">
+      <defs>
+        <path id="arco-su" d="M 30 100 A 70 70 0 0 1 170 100"/>
+        <path id="arco-giu" d="M 24 100 A 76 76 0 0 0 176 100"/>
+      </defs>
+      <g fill="none" stroke="currentColor">
+        <circle cx="100" cy="100" r="94" stroke-width="4"/>
+        <circle cx="100" cy="100" r="56" stroke-width="2"/>
+        <path d="M50 122 H150" stroke-width="2"/>
+      </g>
+      <g fill="currentColor" font-family="'Avenir Next','Segoe UI',Helvetica,Arial,sans-serif" font-weight="700" text-anchor="middle">
+        <text font-size="14" letter-spacing="1.4"><textPath href="#arco-su" startOffset="50%">RIPARATO CON PASSIONE</textPath></text>
+        <text font-size="15" letter-spacing="3"><textPath href="#arco-giu" startOffset="50%">N. 0001</textPath></text>
+        <text x="100" y="112" font-size="32" letter-spacing="0.5">12042</text>
+        <text x="100" y="136" font-size="12" letter-spacing="2">2026</text>
+      </g>
+    </svg>
+  </header>
+
+  <dl class="dati">
+    <div><dt>Esito</dt><dd><span class="da-compilare">in riparazione</span></dd></div>
+    <div><dt>Marca</dt><dd><span class="da-compilare">marca</span></dd></div>
+    <div><dt>Modello</dt><dd><span class="da-compilare">modello</span></dd></div>
+    <div><dt>Anno di produzione</dt><dd><span class="da-compilare">anno</span></dd></div>
+    <div><dt>Lavoro concluso il</dt><dd><span class="da-compilare">data</span></dd></div>
+    <div><dt>Ore di lavoro</dt><dd><span class="da-compilare">ore</span></dd></div>
+    <div><dt>Riparato da</dt><dd><span class="da-compilare">nomi</span></dd></div>
+  </dl>
+
+  <section>
+    <h2>La storia dell’oggetto</h2>
+    <p><span class="da-compilare">Due o tre frasi: di chi è, da quanto tempo lo usa, perché valeva la pena provarci invece di sostituirlo.</span></p>
+  </section>
+
+  <section>
+    <h2>Il lavoro, passo per passo</h2>
+    <ol class="lavoro">
+      <li>
+        <h3>Il guasto</h3>
+        <p><span class="da-compilare">Cosa non funzionava, con le parole del proprietario: il sintomo, da quando, in quali condizioni.</span></p>
+      </li>
+      <li>
+        <h3>La diagnosi</h3>
+        <p><span class="da-compilare">Come è stata trovata la causa: misure fatte, strumenti usati, ipotesi scartate.</span></p>
+      </li>
+      <li>
+        <h3>L’intervento</h3>
+        <p><span class="da-compilare">Cosa è stato sostituito o sistemato, e perché.</span></p>
+      </li>
+      <li>
+        <h3>La prova</h3>
+        <p><span class="da-compilare">Come è stato verificato che funziona: quante manovre, per quanto tempo.</span></p>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Componenti sostituiti</h2>
+    <div class="scorri">
+      <table>
+        <thead>
+          <tr><th scope="col">Posizione</th><th scope="col">Originale</th><th scope="col">Sostituito con</th><th scope="col">Costo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="da-compilare">sigla</span></td>
+            <td><span class="da-compilare">componente</span></td>
+            <td><span class="da-compilare">ricambio</span></td>
+            <td><span class="da-compilare">€</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Verifiche di sicurezza</h2>
+    <!-- Per un controllo superato: class="superato", segno ✓ e il valore misurato nell’esito -->
+    <ul class="collaudo">
+      <li><span class="segno" aria-hidden="true">○</span><span>Ispezione visiva di cavi, morsetti e isolamenti</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
+      <li><span class="segno" aria-hidden="true">○</span><span>Resistenza di isolamento</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
+      <li><span class="segno" aria-hidden="true">○</span><span>Continuità del conduttore di terra</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
+      <li><span class="segno" aria-hidden="true">○</span><span>Prova di funzionamento al banco</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
+    </ul>
+    <div class="nota">
+      <p>Le verifiche riguardano la sola scheda riparata al banco. Fotocellule, finecorsa e limitazione della forza fanno parte dell’impianto installato e vanno controllati da un installatore abilitato.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cosa non è stato fatto</h2>
+    <p><span class="da-compilare">Parti non sostituite che potrebbero cedere, difetti estetici rimasti, controlli non eseguiti.</span></p>
+    <div class="nota">
+      <p>Questa è una riparazione volontaria e gratuita, fatta con cura ma senza garanzia. Se l’oggetto smette di funzionare, la scheda aiuta chi ci metterà mano dopo di noi.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Foto</h2>
+    <!-- Sostituire ogni riquadro con <img src="…" alt="descrizione"> -->
+    <div class="foto">
+      <figure><div class="riquadro">foto da aggiungere</div><figcaption>Com’è arrivato</figcaption></figure>
+      <figure><div class="riquadro">foto da aggiungere</div><figcaption>Il guasto</figcaption></figure>
+      <figure><div class="riquadro">foto da aggiungere</div><figcaption>A lavoro finito</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cosa si è evitato</h2>
+    <dl class="impatto">
+      <div><dt>Rifiuti elettronici non prodotti</dt><dd><span class="da-compilare">kg</span></dd></div>
+      <div><dt>Emissioni di CO₂ evitate (stima)</dt><dd><span class="da-compilare">kg</span></dd></div>
+    </dl>
+    <p style="margin-top:1rem">Il peso è quello dell’oggetto, misurato. Le emissioni sono una stima calcolata con il metodo del Fixometer di The Restart Project, non una misura.</p>
+  </section>
+
+  <section>
+    <h2>L’etichetta sull’oggetto</h2>
+    <p>Il codice porta a questa pagina. Il numero è scritto anche in chiaro, così la scheda si trova pure se il codice si rovina.</p>
+    <div class="etichetta">
+      <svg viewBox="-2 -2 29 29" role="img" aria-label="Codice QR per 12042.it/r/0001" shape-rendering="crispEdges">
+        <rect x="-2" y="-2" width="29" height="29" fill="#fff"/>
+        <path fill="#14161c" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM15 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM21 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM12 1h1v1h-1zM15 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM9 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM21 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM16 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM21 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM9 7h1v1h-1zM11 7h1v1h-1zM13 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM16 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM20 8h1v1h-1zM23 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM24 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM18 10h1v1h-1zM19 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM0 11h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM19 11h1v1h-1zM23 11h1v1h-1zM0 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM13 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM21 12h1v1h-1zM23 12h1v1h-1zM24 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM8 13h1v1h-1zM11 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM16 13h1v1h-1zM18 13h1v1h-1zM19 13h1v1h-1zM21 13h1v1h-1zM24 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM14 14h1v1h-1zM16 14h1v1h-1zM18 14h1v1h-1zM19 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM24 14h1v1h-1zM1 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM13 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM23 15h1v1h-1zM0 16h1v1h-1zM3 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM8 16h1v1h-1zM9 16h1v1h-1zM10 16h1v1h-1zM12 16h1v1h-1zM13 16h1v1h-1zM14 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM17 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM8 17h1v1h-1zM11 17h1v1h-1zM12 17h1v1h-1zM13 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM16 17h1v1h-1zM20 17h1v1h-1zM21 17h1v1h-1zM23 17h1v1h-1zM24 17h1v1h-1zM0 18h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM21 18h1v1h-1zM23 18h1v1h-1zM24 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM9 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM16 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM24 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM12 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM0 21h1v1h-1zM2 21h1v1h-1zM3 21h1v1h-1zM4 21h1v1h-1zM6 21h1v1h-1zM9 21h1v1h-1zM11 21h1v1h-1zM13 21h1v1h-1zM14 21h1v1h-1zM15 21h1v1h-1zM16 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM22 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM20 22h1v1h-1zM24 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM11 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM16 23h1v1h-1zM20 23h1v1h-1zM21 23h1v1h-1zM23 23h1v1h-1zM0 24h1v1h-1zM1 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM12 24h1v1h-1zM14 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1z"/>
+      </svg>
+      <div>
+        <strong>12042</strong>
+        <span>riparato con passione</span>
+        <span class="serie">n. 0001</span>
+        <span>12042.it/r/0001</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Dati aperti</h2>
+    <p>Gli stessi dati in formato Open Repair Data Standard, per chi studia la riparabilità dei prodotti.</p>
+    <details>
+      <summary>Mostra il record</summary>
+<pre id="ords">{
+  "id": "0001",
+  "data_provider": "12042",
+  "country": "ITA",
+  "partner_product_category": "Apricancello",
+  "product_category": "DA COMPILARE (dall’elenco ORDS)",
+  "brand": "DA COMPILARE",
+  "year_of_manufacture": "DA COMPILARE",
+  "problem": "DA COMPILARE",
+  "repair_status": "DA COMPILARE (Fixed | Repairable | End of life)",
+  "repair_barrier_if_end_of_life": "",
+  "group_identifier": "12042-bra",
+  "event_date": "DA COMPILARE (AAAA-MM-GG)"
+}</pre>
+    </details>
+  </section>
+
+  <footer>
+    <p><a href="/">12042</a>, riparato con passione. Un gruppo di amici di Bra che rimette in funzione oggetti invece di buttarli.</p>
+    <p><span class="da-compilare">Licenza di testi e foto: da decidere.</span></p>
+  </footer>
+
+</div>
+</body>
+</html>

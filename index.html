@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12042, riparato con passione | Oggetti riparati a Bra</title>
+<meta name="description" content="Un gruppo di amici di Bra ripara oggetti invece di buttarli. Ogni oggetto riparato ha un numero e una scheda pubblica che racconta il lavoro fatto.">
+<style>
+  :root {
+    --carta: #f1f3f0;
+    --foglio: #fbfcfa;
+    --inchiostro: #1b1e2b;
+    --grigio: #5a6072;
+    --filo: #cfd4d6;
+    --timbro: #2f3a8f;
+    --collaudo: #256b4d;
+    --bozza: #8a5a00;
+    --bozza-fondo: #fbefcf;
+    --testo: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    --segni: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --carta: #14161c;
+      --foglio: #1b1e26;
+      --inchiostro: #e7e9ef;
+      --grigio: #a2a8b8;
+      --filo: #343947;
+      --timbro: #a3adff;
+      --collaudo: #7ed0a8;
+      --bozza: #f0c060;
+      --bozza-fondo: #3a2e10;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--carta);
+    color: var(--inchiostro);
+    font-family: var(--testo);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--timbro); text-underline-offset: 0.15em; }
+  a:focus-visible { outline: 2px solid var(--timbro); outline-offset: 3px; }
+
+  .pagina { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+  .apertura {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid var(--inchiostro);
+  }
+  .timbro {
+    width: clamp(9rem, 34vw, 14rem);
+    height: auto;
+    color: var(--timbro);
+    transform: rotate(-7deg);
+    opacity: 0.92;
+  }
+  h1 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.8rem;
+  }
+  .apertura p { margin: 0; color: var(--grigio); max-width: 26rem; }
+  @media (max-width: 34rem) {
+    .apertura { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+
+  h2 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    margin: 3rem 0 0.9rem;
+  }
+  p { margin: 0 0 1rem; max-width: 38rem; }
+
+  /* Registro delle schede: una riga per oggetto */
+  .registro { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--filo); font-family: var(--segni); }
+  .registro li { border-bottom: 1px solid var(--filo); }
+  .registro a {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr auto;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.9rem 0.25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .registro a:hover { background: var(--foglio); }
+  .registro .n { color: var(--timbro); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .registro .oggetto { font-weight: 600; font-size: 1.125rem; }
+  .registro .esito { font-size: 0.875rem; color: var(--grigio); }
+  .registro .riparato .esito { color: var(--collaudo); font-weight: 600; }
+
+  .nota {
+    background: var(--foglio);
+    border: 1px solid var(--filo);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0 0;
+    max-width: 38rem;
+  }
+  .nota p:last-child { margin-bottom: 0; }
+
+  .da-compilare {
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    border-bottom: 1px dashed var(--bozza);
+    padding: 0 0.2em;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--inchiostro);
+    font-family: var(--segni);
+    font-size: 0.875rem;
+    color: var(--grigio);
+  }
+  footer p { margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="apertura">
+    <svg class="timbro" viewBox="0 0 200 200" role="img" aria-label="Timbro 12042, riparato con passione">
+      <defs>
+        <path id="arco-su" d="M 30 100 A 70 70 0 0 1 170 100"/>
+        <path id="arco-giu" d="M 24 100 A 76 76 0 0 0 176 100"/>
+      </defs>
+      <g fill="none" stroke="currentColor">
+        <circle cx="100" cy="100" r="94" stroke-width="4"/>
+        <circle cx="100" cy="100" r="56" stroke-width="2"/>
+      </g>
+      <g fill="currentColor" font-family="'Avenir Next','Segoe UI',Helvetica,Arial,sans-serif" font-weight="700" text-anchor="middle">
+        <text font-size="14" letter-spacing="1.4"><textPath href="#arco-su" startOffset="50%">RIPARATO CON PASSIONE</textPath></text>
+        <text font-size="15" letter-spacing="3"><textPath href="#arco-giu" startOffset="50%">DAL 2026</textPath></text>
+        <text x="100" y="111" font-size="30" letter-spacing="0.5">12042</text>
+      </g>
+    </svg>
+    <div>
+      <h1>Oggetti riparati invece di buttati</h1>
+      <p>Siamo un gruppo di amici di Bra. Rimettiamo in funzione amplificatori, televisori, strumenti musicali e altri apparecchi che altrimenti finirebbero tra i rifiuti.</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Ogni oggetto ha la sua scheda</h2>
+    <p>Quando finiamo una riparazione incolliamo sull’oggetto un’etichetta con un numero e un codice QR. Il codice porta a una pagina che racconta cosa aveva l’oggetto, cosa abbiamo fatto, quali componenti abbiamo cambiato e cosa abbiamo lasciato com’era.</p>
+    <p>La scheda resta pubblica. Serve a chi usa l’oggetto, e a chi un giorno dovrà rimetterci mano.</p>
+  </section>
+
+  <section>
+    <h2>Le schede</h2>
+    <!-- Una riga per oggetto, la più recente in alto.
+         A lavoro riuscito: <li class="riparato"> e come esito "riparato". -->
+    <ul class="registro">
+      <li>
+        <a href="r/0001/">
+          <span class="n">0001</span>
+          <span class="oggetto">Apricancello</span>
+          <span class="esito">in riparazione</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Cosa aspettarsi</h2>
+    <p>Ripariamo per passione, nel tempo libero, senza farci pagare. Per questo non possiamo dare una garanzia: a volte la riparazione riesce, a volte no, e in ogni scheda scriviamo con chiarezza come è andata.</p>
+    <div class="nota">
+      <p>Sugli apparecchi collegati alla rete elettrica controlliamo la sicurezza prima di riconsegnarli, e riportiamo le verifiche nella scheda. Gli impianti installati restano di competenza di un installatore abilitato.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Scrivici</h2>
+    <p><span class="da-compilare">Indirizzo email o altro contatto, da aggiungere.</span></p>
+  </section>
+
+  <footer>
+    <p>12042, riparato con passione. Il numero è il codice postale di Bra, dove tutto è cominciato.</p>
+  </footer>
+
+</div>
+</body>
+</html>

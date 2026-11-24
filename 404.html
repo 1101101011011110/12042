@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda non trovata | 12042</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --carta: #f1f3f0;
+    --foglio: #fbfcfa;
+    --inchiostro: #1b1e2b;
+    --grigio: #5a6072;
+    --filo: #cfd4d6;
+    --timbro: #2f3a8f;
+    --collaudo: #256b4d;
+    --bozza: #8a5a00;
+    --bozza-fondo: #fbefcf;
+    --testo: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    --segni: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --carta: #14161c;
+      --foglio: #1b1e26;
+      --inchiostro: #e7e9ef;
+      --grigio: #a2a8b8;
+      --filo: #343947;
+      --timbro: #a3adff;
+      --collaudo: #7ed0a8;
+      --bozza: #f0c060;
+      --bozza-fondo: #3a2e10;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--carta);
+    color: var(--inchiostro);
+    font-family: var(--testo);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--timbro); text-underline-offset: 0.15em; }
+  a:focus-visible { outline: 2px solid var(--timbro); outline-offset: 3px; }
+
+  .pagina { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+  .apertura {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid var(--inchiostro);
+  }
+  .timbro {
+    width: clamp(9rem, 34vw, 14rem);
+    height: auto;
+    color: var(--timbro);
+    transform: rotate(-7deg);
+    opacity: 0.92;
+  }
+  h1 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.8rem;
+  }
+  .apertura p { margin: 0; color: var(--grigio); max-width: 26rem; }
+  @media (max-width: 34rem) {
+    .apertura { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+
+  h2 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    margin: 3rem 0 0.9rem;
+  }
+  p { margin: 0 0 1rem; max-width: 38rem; }
+
+  /* Registro delle schede: una riga per oggetto */
+  .registro { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--filo); font-family: var(--segni); }
+  .registro li { border-bottom: 1px solid var(--filo); }
+  .registro a {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr auto;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.9rem 0.25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .registro a:hover { background: var(--foglio); }
+  .registro .n { color: var(--timbro); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .registro .oggetto { font-weight: 600; font-size: 1.125rem; }
+  .registro .esito { font-size: 0.875rem; color: var(--grigio); }
+  .registro .riparato .esito { color: var(--collaudo); font-weight: 600; }
+
+  .nota {
+    background: var(--foglio);
+    border: 1px solid var(--filo);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0 0;
+    max-width: 38rem;
+  }
+  .nota p:last-child { margin-bottom: 0; }
+
+  .da-compilare {
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    border-bottom: 1px dashed var(--bozza);
+    padding: 0 0.2em;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--inchiostro);
+    font-family: var(--segni);
+    font-size: 0.875rem;
+    color: var(--grigio);
+  }
+  footer p { margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <section>
+    <h1>Questa scheda non c’è ancora</h1>
+    <p>Se hai inquadrato il codice su un oggetto, la riparazione è probabilmente in corso e la scheda non è stata ancora pubblicata. Riprova tra qualche giorno.</p>
+    <p>Se invece hai scritto l’indirizzo a mano, controlla il numero: le schede hanno la forma <strong>12042.it/r/0001</strong>.</p>
+    <p><a href="/">Vai alla pagina iniziale e all’elenco delle schede</a></p>
+  </section>
+</div>
+</body>
+</html>
