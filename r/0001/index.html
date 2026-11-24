@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scheda 0001, apricancello | 12042 riparato a Bra</title>
-<meta name="description" content="Storia della riparazione n. 0001: un apricancello rimesso in funzione a Bra.">
+<meta name="description" content="Scheda di riparazione n. 0001: apricancello CAME ZA3P messo fuori uso da una lucertola.">
 <style>
   :root {
     --carta: #f1f3f0;
@@ -203,7 +203,7 @@
   .nota p:last-child { margin-bottom: 0; }
 
   /* Foto */
-  .foto { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.75rem; }
+  .foto { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.75rem; }
   .foto figure { margin: 0; }
   .foto .riquadro {
     aspect-ratio: 4 / 3;
@@ -303,11 +303,11 @@
   </header>
 
   <dl class="dati">
-    <div><dt>Esito</dt><dd><span class="da-compilare">in riparazione</span></dd></div>
-    <div><dt>Marca</dt><dd><span class="da-compilare">marca</span></dd></div>
-    <div><dt>Modello</dt><dd><span class="da-compilare">modello</span></dd></div>
+    <div><dt>Esito</dt><dd>Riparato</dd></div>
+    <div><dt>Marca</dt><dd>CAME</dd></div>
+    <div><dt>Modello</dt><dd>ZA3P, scheda di comando</dd></div>
     <div><dt>Anno di produzione</dt><dd><span class="da-compilare">anno</span></dd></div>
-    <div><dt>Lavoro concluso il</dt><dd><span class="da-compilare">data</span></dd></div>
+    <div><dt>Lavoro concluso il</dt><dd>24 novembre 2026</dd></div>
     <div><dt>Ore di lavoro</dt><dd><span class="da-compilare">ore</span></dd></div>
     <div><dt>Riparato da</dt><dd><span class="da-compilare">nomi</span></dd></div>
   </dl>
@@ -322,59 +322,46 @@
     <ol class="lavoro">
       <li>
         <h3>Il guasto</h3>
-        <p><span class="da-compilare">Cosa non funzionava, con le parole del proprietario: il sintomo, da quando, in quali condizioni.</span></p>
+        <p>Una lucertola è entrata nel quadro dell’apricancello. Da allora l’interruttore differenziale scattava e il cancello non funzionava più.</p>
       </li>
       <li>
         <h3>La diagnosi</h3>
-        <p><span class="da-compilare">Come è stata trovata la causa: misure fatte, strumenti usati, ipotesi scartate.</span></p>
+        <p>La lucertola è rimasta folgorata sul lato saldature della scheda. I residui facevano da ponte tra due piazzole e mettevano in corto l’alimentazione. In quel punto la scarica ha rovinato il circuito stampato.</p>
       </li>
       <li>
         <h3>L’intervento</h3>
-        <p><span class="da-compilare">Cosa è stato sostituito o sistemato, e perché.</span></p>
+        <p>Abbiamo tolto i residui e pulito la zona. Dove il circuito stampato era rovinato dalla scarica abbiamo messo una goccia di resina, per ripristinare l’isolamento.</p>
       </li>
       <li>
         <h3>La prova</h3>
-        <p><span class="da-compilare">Come è stato verificato che funziona: quante manovre, per quanto tempo.</span></p>
+        <p>Prima della pulizia il multimetro misurava 50 kΩ tra le due piazzole, dopo misura circuito aperto. Abbiamo poi ridato tensione per gradi: prima con una lampadina in serie alla fase, che limita la corrente se l’isolamento cede, poi direttamente dalla rete per 20 minuti. Il differenziale non è più scattato.</p>
       </li>
     </ol>
   </section>
 
   <section>
     <h2>Componenti sostituiti</h2>
-    <div class="scorri">
-      <table>
-        <thead>
-          <tr><th scope="col">Posizione</th><th scope="col">Originale</th><th scope="col">Sostituito con</th><th scope="col">Costo</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="da-compilare">sigla</span></td>
-            <td><span class="da-compilare">componente</span></td>
-            <td><span class="da-compilare">ricambio</span></td>
-            <td><span class="da-compilare">€</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <p>Nessun componente sostituito. Materiale usato: resina isolante.</p>
   </section>
 
   <section>
     <h2>Verifiche di sicurezza</h2>
     <!-- Per un controllo superato: class="superato", segno ✓ e il valore misurato nell’esito -->
     <ul class="collaudo">
-      <li><span class="segno" aria-hidden="true">○</span><span>Ispezione visiva di cavi, morsetti e isolamenti</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
-      <li><span class="segno" aria-hidden="true">○</span><span>Resistenza di isolamento</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
-      <li><span class="segno" aria-hidden="true">○</span><span>Continuità del conduttore di terra</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
-      <li><span class="segno" aria-hidden="true">○</span><span>Prova di funzionamento al banco</span><span class="esito"><span class="da-compilare">da eseguire</span></span></li>
+      <li class="superato"><span class="segno" aria-hidden="true">✓</span><span>Resistenza tra le piazzole danneggiate, con il multimetro</span><span class="esito">da 50 kΩ a circuito aperto</span></li>
+      <li class="superato"><span class="segno" aria-hidden="true">✓</span><span>Prima accensione con lampadina in serie alla fase</span><span class="esito">nessun assorbimento anomalo</span></li>
+      <li class="superato"><span class="segno" aria-hidden="true">✓</span><span>Prova con tensione di rete per 20 minuti</span><span class="esito">nessuno scatto del differenziale</span></li>
+      <li><span class="segno" aria-hidden="true">○</span><span>Resistenza di isolamento a 500 V</span><span class="esito">non eseguita</span></li>
     </ul>
     <div class="nota">
-      <p>Le verifiche riguardano la sola scheda riparata al banco. Fotocellule, finecorsa e limitazione della forza fanno parte dell’impianto installato e vanno controllati da un installatore abilitato.</p>
+      <p>Le verifiche riguardano la sola scheda, provata al banco. Fotocellule, finecorsa e limitazione della forza fanno parte dell’impianto installato e vanno controllati da un installatore abilitato.</p>
     </div>
   </section>
 
   <section>
     <h2>Cosa non è stato fatto</h2>
-    <p><span class="da-compilare">Parti non sostituite che potrebbero cedere, difetti estetici rimasti, controlli non eseguiti.</span></p>
+    <p>Non abbiamo misurato l’isolamento a 500 V con un megaohmmetro: la tenuta è stata verificata solo con il multimetro e con la prova sotto tensione. Sul circuito stampato resta il segno della scarica, coperto dalla resina.</p>
+    <p>Il passaggio da cui è entrata la lucertola va chiuso quando si rimonta il quadro, altrimenti il guasto può ripetersi.</p>
     <div class="nota">
       <p>Questa è una riparazione volontaria e gratuita, fatta con cura ma senza garanzia. Se l’oggetto smette di funzionare, la scheda aiuta chi ci metterà mano dopo di noi.</p>
     </div>
@@ -382,11 +369,11 @@
 
   <section>
     <h2>Foto</h2>
-    <!-- Sostituire ogni riquadro con <img src="…" alt="descrizione"> -->
     <div class="foto">
-      <figure><div class="riquadro">foto da aggiungere</div><figcaption>Com’è arrivato</figcaption></figure>
-      <figure><div class="riquadro">foto da aggiungere</div><figcaption>Il guasto</figcaption></figure>
-      <figure><div class="riquadro">foto da aggiungere</div><figcaption>A lavoro finito</figcaption></figure>
+      <figure><a href="scheda-fronte.jpg"><img src="scheda-fronte.jpg" alt="La scheda di comando CAME ZA3P vista dal lato componenti" loading="lazy"></a><figcaption>La scheda di comando</figcaption></figure>
+      <figure><a href="danno.jpg"><img src="danno.jpg" alt="Lato saldature: zona annerita in un angolo della scheda" loading="lazy"></a><figcaption>Il danno sul lato saldature</figcaption></figure>
+      <figure><a href="danno-dettaglio.jpg"><img src="danno-dettaglio.jpg" alt="Due piazzole vicine con residui carbonizzati tra l’una e l’altra" loading="lazy"></a><figcaption>Le piazzole in corto, da vicino</figcaption></figure>
+      <figure><a href="dopo-resina.jpg"><img src="dopo-resina.jpg" alt="La stessa zona pulita e coperta da una goccia di resina trasparente" loading="lazy"></a><figcaption>Dopo la pulizia, con la resina</figcaption></figure>
     </div>
   </section>
 
@@ -425,15 +412,15 @@
   "id": "0001",
   "data_provider": "12042",
   "country": "ITA",
-  "partner_product_category": "Apricancello",
+  "partner_product_category": "Apricancello (scheda di comando)",
   "product_category": "DA COMPILARE (dall’elenco ORDS)",
-  "brand": "DA COMPILARE",
+  "brand": "CAME",
   "year_of_manufacture": "DA COMPILARE",
-  "problem": "DA COMPILARE",
-  "repair_status": "DA COMPILARE (Fixed | Repairable | End of life)",
+  "problem": "Lucertola entrata nel quadro e folgorata sulla scheda: residui in corto sull’alimentazione, scatta il differenziale.",
+  "repair_status": "Fixed",
   "repair_barrier_if_end_of_life": "",
   "group_identifier": "12042-bra",
-  "event_date": "DA COMPILARE (AAAA-MM-GG)"
+  "event_date": "2026-11-24"
 }</pre>
     </details>
   </section>
