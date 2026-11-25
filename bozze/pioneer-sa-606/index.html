@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheda NNNN, amplificatore | 12042 riparato a Bra</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Scheda di riparazione n. NNNN: amplificatore Pioneer SA-606 senza suono per un guasto al circuito di protezione delle uscite.">
+<style>
+  :root {
+    --carta: #f1f3f0;
+    --foglio: #fbfcfa;
+    --inchiostro: #1b1e2b;
+    --grigio: #5a6072;
+    --filo: #cfd4d6;
+    --timbro: #2f3a8f;
+    --collaudo: #256b4d;
+    --bozza: #8a5a00;
+    --bozza-fondo: #fbefcf;
+    --testo: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    --segni: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --carta: #14161c;
+      --foglio: #1b1e26;
+      --inchiostro: #e7e9ef;
+      --grigio: #a2a8b8;
+      --filo: #343947;
+      --timbro: #a3adff;
+      --collaudo: #7ed0a8;
+      --bozza: #f0c060;
+      --bozza-fondo: #3a2e10;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--carta);
+    color: var(--inchiostro);
+    font-family: var(--testo);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--timbro); text-underline-offset: 0.15em; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--timbro);
+    outline-offset: 3px;
+  }
+
+  .pagina {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+
+  /* Avviso di bozza: da togliere quando la scheda è completa */
+  .avviso-bozza {
+    font-family: var(--segni);
+    font-size: 0.875rem;
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    border-left: 4px solid var(--bozza);
+    padding: 0.6rem 0.9rem;
+    margin: 0 0 2rem;
+  }
+  .da-compilare {
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    border-bottom: 1px dashed var(--bozza);
+    padding: 0 0.2em;
+    font-style: normal;
+  }
+
+  /* Testata con il timbro */
+  .testata {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--inchiostro);
+  }
+  .numero {
+    font-family: var(--segni);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--timbro);
+    margin: 0 0 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  h1 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: clamp(2rem, 7vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem;
+  }
+  .sottotitolo { margin: 0; color: var(--grigio); max-width: 30rem; }
+  .timbro {
+    width: clamp(7.5rem, 26vw, 11rem);
+    height: auto;
+    color: var(--timbro);
+    transform: rotate(-7deg);
+    opacity: 0.92;
+  }
+  @media (max-width: 30rem) {
+    .testata { grid-template-columns: 1fr; }
+    .timbro { justify-self: end; margin-top: -1rem; }
+  }
+
+  h2 {
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    margin: 3rem 0 0.9rem;
+  }
+  p { margin: 0 0 1rem; max-width: 38rem; }
+
+  /* Dati dell’oggetto */
+  .dati {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 0;
+    margin: 2rem 0 0;
+    border-top: 1px solid var(--filo);
+  }
+  .dati div {
+    padding: 0.7rem 0.75rem 0.7rem 0;
+    border-bottom: 1px solid var(--filo);
+  }
+  .dati dt {
+    font-family: var(--segni);
+    font-size: 0.8125rem;
+    color: var(--grigio);
+  }
+  .dati dd { margin: 0; font-family: var(--segni); font-weight: 600; }
+
+  /* Sequenza del lavoro: è davvero una sequenza, quindi numerata */
+  .lavoro { list-style: none; counter-reset: passo; margin: 0; padding: 0; }
+  .lavoro li {
+    counter-increment: passo;
+    position: relative;
+    padding: 0 0 1.5rem 3rem;
+    border-left: 2px solid var(--filo);
+    margin-left: 1rem;
+  }
+  .lavoro li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .lavoro li::before {
+    content: counter(passo);
+    position: absolute;
+    left: -1.0625rem;
+    top: -0.1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--carta);
+    border: 2px solid var(--timbro);
+    color: var(--timbro);
+    font-family: var(--segni);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    display: grid;
+    place-items: center;
+  }
+  .lavoro h3 {
+    font-family: var(--segni);
+    font-size: 1.0625rem;
+    margin: 0 0 0.3rem;
+  }
+  .lavoro p { margin-bottom: 0; }
+
+  /* Tabella componenti */
+  .scorri { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--segni); font-size: 0.9375rem; }
+  th, td { text-align: left; padding: 0.55rem 0.75rem 0.55rem 0; border-bottom: 1px solid var(--filo); vertical-align: top; }
+  th { font-weight: 600; color: var(--grigio); font-size: 0.8125rem; }
+
+  /* Collaudo */
+  .collaudo { list-style: none; margin: 0; padding: 0; font-family: var(--segni); }
+  .collaudo li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr auto;
+    gap: 0.6rem;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--filo);
+  }
+  .collaudo .segno { font-weight: 700; color: var(--grigio); }
+  .collaudo .superato .segno { color: var(--collaudo); }
+  .collaudo .esito { font-size: 0.875rem; color: var(--grigio); }
+
+  .nota {
+    background: var(--foglio);
+    border: 1px solid var(--filo);
+    padding: 1rem 1.1rem;
+    margin: 1.25rem 0 0;
+  }
+  .nota p:last-child { margin-bottom: 0; }
+
+  /* Foto */
+  .foto { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.75rem; }
+  .foto figure { margin: 0; }
+  .foto .riquadro {
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--bozza);
+    background: var(--bozza-fondo);
+    color: var(--bozza);
+    display: grid;
+    place-items: center;
+    font-family: var(--segni);
+    font-size: 0.8125rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  .foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .foto figcaption { font-family: var(--segni); font-size: 0.8125rem; color: var(--grigio); margin-top: 0.35rem; }
+
+  /* Impatto */
+  .impatto { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.5rem; margin: 0; }
+  .impatto dt { font-family: var(--segni); font-size: 0.875rem; color: var(--grigio); }
+  .impatto dd { margin: 0; font-family: var(--segni); font-size: 1.75rem; font-weight: 700; line-height: 1.2; }
+
+  /* Etichetta */
+  .etichetta {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    gap: 0.9rem;
+    align-items: center;
+    background: #fff;
+    color: #14161c;
+    border: 1px solid #14161c;
+    border-radius: 4px;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--segni);
+  }
+  .etichetta svg { width: 5.5rem; height: 5.5rem; display: block; }
+  .etichetta strong { display: block; font-size: 1.5rem; line-height: 1; letter-spacing: 0.04em; }
+  .etichetta span { display: block; font-size: 0.75rem; margin-top: 0.3rem; }
+  .etichetta .serie { font-size: 1rem; font-weight: 700; margin-top: 0.5rem; }
+
+  details { margin-top: 1rem; }
+  summary { cursor: pointer; font-family: var(--segni); font-weight: 600; }
+  pre {
+    overflow-x: auto;
+    background: var(--foglio);
+    border: 1px solid var(--filo);
+    padding: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--inchiostro);
+    font-family: var(--segni);
+    font-size: 0.875rem;
+    color: var(--grigio);
+  }
+  footer p { margin-bottom: 0.4rem; }
+
+  @media print {
+    body { background: #fff; }
+    .avviso-bozza, details { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <p class="avviso-bozza">Bozza. Le parti evidenziate sono da compilare con i dati reali della riparazione.</p>
+
+  <header class="testata">
+    <div>
+      <p class="numero">Scheda n. <span class="da-compilare">NNNN</span></p>
+      <h1>Amplificatore</h1>
+      <p class="sottotitolo">Questo oggetto è stato riparato a mano invece di essere sostituito. Qui c’è scritto cosa aveva, cosa è stato fatto e da chi.</p>
+    </div>
+
+    <!-- Il timbro: firma dell’attività. Data e numero cambiano a ogni scheda. -->
+    <svg class="timbro" viewBox="0 0 200 200" role="img" aria-label="Timbro 12042, riparato con passione, n. NNNN">
+      <defs>
+        <path id="arco-su" d="M 30 100 A 70 70 0 0 1 170 100"/>
+        <path id="arco-giu" d="M 24 100 A 76 76 0 0 0 176 100"/>
+      </defs>
+      <g fill="none" stroke="currentColor">
+        <circle cx="100" cy="100" r="94" stroke-width="4"/>
+        <circle cx="100" cy="100" r="56" stroke-width="2"/>
+        <path d="M50 122 H150" stroke-width="2"/>
+      </g>
+      <g fill="currentColor" font-family="'Avenir Next','Segoe UI',Helvetica,Arial,sans-serif" font-weight="700" text-anchor="middle">
+        <text font-size="14" letter-spacing="1.4"><textPath href="#arco-su" startOffset="50%">RIPARATO CON PASSIONE</textPath></text>
+        <text font-size="15" letter-spacing="3"><textPath href="#arco-giu" startOffset="50%">N. NNNN</textPath></text>
+        <text x="100" y="112" font-size="32" letter-spacing="0.5">12042</text>
+        <text x="100" y="136" font-size="12" letter-spacing="2">2026</text>
+      </g>
+    </svg>
+  </header>
+
+  <dl class="dati">
+    <div><dt>Esito</dt><dd>Riparato</dd></div>
+    <div><dt>Marca</dt><dd>Pioneer</dd></div>
+    <div><dt>Modello</dt><dd>SA-606</dd></div>
+    <div><dt>Anno di produzione</dt><dd><span class="da-compilare">anno</span></dd></div>
+    <div><dt>Lavoro concluso il</dt><dd>16 novembre 2026</dd></div>
+    <div><dt>Ore di lavoro</dt><dd><span class="da-compilare">ore</span></dd></div>
+    <div><dt>Riparato da</dt><dd><span class="da-compilare">nomi</span></dd></div>
+  </dl>
+
+  <section>
+    <h2>La storia dell’oggetto</h2>
+    <p><span class="da-compilare">Due o tre frasi: di chi è, da quanto tempo lo usa, perché valeva la pena provarci invece di sostituirlo.</span></p>
+  </section>
+
+  <section>
+    <h2>Il lavoro, passo per passo</h2>
+    <ol class="lavoro">
+      <li>
+        <h3>Il guasto</h3>
+        <p>L’amplificatore non funzionava: con le casse collegate non usciva alcun suono.</p>
+      </li>
+      <li>
+        <h3>La diagnosi</h3>
+        <p>Guardando il circuito abbiamo visto un componente di potenza esploso. Sembrava un transistor, invece era un triac. Anche un secondo transistor, più piccolo, era rotto.</p>
+        <p>Con lo schema elettrico abbiamo capito che fanno parte del circuito che protegge le casse. Secondo il manuale, se all’uscita compare una tensione continua di ±8 V, il triac D26 mette in corto l’alimentazione e il fusibile sul primario del trasformatore brucia entro 2 secondi. Qui invece si sono rotti i componenti della protezione. Forse anche perché il fusibile montato era da 2 A invece che da 1,25 A, come previsto.</p>
+        <figure style="margin:1rem 0 0"><a href="schema-protezione.png"><img src="schema-protezione.png" alt="Schema del circuito di protezione: l’uscita dell’amplificatore passa da un filtro passa basso ai transistor Q19 e Q20, che comandano il triac D26 collegato tra +Vcc e −Vcc; a destra il ponte raddrizzatore, il trasformatore e il fusibile sulla linea di rete" style="width:100%;height:auto;display:block;background:#fff"></a><figcaption style="font-family:var(--segni);font-size:0.8125rem;color:var(--grigio);margin-top:0.35rem">Il circuito di protezione (Fig. 5 del manuale di servizio Pioneer SA-606)</figcaption></figure>
+      </li>
+      <li>
+        <h3>L’intervento</h3>
+        <p>Abbiamo tolto Q19, Q20 e D26, e l’amplificatore ha ripreso a funzionare. Il guasto quindi era nella protezione. Poi abbiamo montato componenti nuovi al loro posto e un fusibile da 1,25 A.</p>
+        <p>La prima volta abbiamo montato il triac con i terminali invertiti, pensando che fossero equivalenti. Non lo sono: lo abbiamo rimontato nel verso giusto.</p>
+      </li>
+      <li>
+        <h3>La prova</h3>
+        <p>In una delle accensioni dopo la sostituzione, il condensatore di filtro sull’ingresso di rete a 220 V (10 nF) è andato in cortocircuito e il fusibile è bruciato. Abbiamo sostituito il condensatore e il fusibile.</p>
+        <p>Con i componenti nuovi l’amplificatore funziona ancora. Sulle quattro uscite per gli altoparlanti la tensione continua è di pochi millivolt, molto lontana dagli 8 V che fanno intervenire la protezione.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Componenti sostituiti</h2>
+    <div class="scorri">
+      <table>
+        <thead><tr><th>Riferimento</th><th>Componente</th><th>Montato</th></tr></thead>
+        <tbody>
+          <tr><td>D26</td><td>Triac del circuito di protezione, BCR3AM-4</td><td>BT137-600E.127</td></tr>
+          <tr><td>Q19</td><td>Transistor del circuito di protezione, 2SA904A-G</td><td>KSA992FTA</td></tr>
+          <tr><td>Q20</td><td>Transistor del circuito di protezione, 2SC1914A-G</td><td>KSC1845FTA</td></tr>
+          <tr><td>C1</td><td>Condensatore di filtro sull’ingresso di rete, a disco, 10 nF 250 V AC (sigla 103Z), andato in corto</td><td><span class="da-compilare">Condensatore di sicurezza X2, 10 nF: tensione e sigla</span></td></tr>
+          <tr><td>Fusibile</td><td>Primario del trasformatore, era da 2 A</td><td>1,25 A ritardato, il valore scritto sul telaio (1.25AT)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Verifiche di sicurezza</h2>
+    <!-- Per un controllo superato: class="superato", segno ✓ e il valore misurato nell’esito -->
+    <ul class="collaudo">
+      <li class="superato"><span class="segno" aria-hidden="true">✓</span><span>Tensione continua sulle quattro uscite per gli altoparlanti</span><span class="esito">pochi mV</span></li>
+      <li class="superato"><span class="segno" aria-hidden="true">✓</span><span>Funzionamento con tensione di rete, dopo la sostituzione</span><span class="esito">funziona</span></li>
+      <li class="superato"><span class="segno" aria-hidden="true">✓</span><span>Fusibile sul primario del trasformatore</span><span class="esito">1,25 A ritardato, come scritto sul telaio</span></li>
+      <li><span class="segno" aria-hidden="true">○</span><span>Resistenza di isolamento</span><span class="esito">non eseguita</span></li>
+      <li><span class="segno" aria-hidden="true">○</span><span>Intervento della protezione con tensione continua all’uscita</span><span class="esito">non eseguita</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Cosa non è stato fatto</h2>
+    <p>Non sappiamo con certezza perché si sono rotti i componenti della protezione invece del fusibile. Il fusibile da 2 A è la spiegazione più probabile, ma è un’ipotesi.</p>
+    <p>Non abbiamo misurato la resistenza di isolamento. La sicurezza è stata verificata solo con la prova sotto tensione e con la misura della tensione continua sulle uscite.</p>
+    <p>Non abbiamo provato l’intervento della protezione con i componenti nuovi: non abbiamo messo una tensione continua sull’uscita per vedere se il fusibile brucia entro 2 secondi.</p>
+    <div class="nota">
+      <p>Questa è una riparazione volontaria e gratuita, fatta con cura ma senza garanzia. Se l’oggetto smette di funzionare, la scheda aiuta chi ci metterà mano dopo di noi.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Foto</h2>
+    <div class="foto">
+      <figure><a href="amplificatore.jpg"><img src="amplificatore.jpg" alt="Amplificatore Pioneer SA-606 color argento appoggiato su un tavolo bianco, visto di tre quarti" loading="lazy"></a><figcaption>Il Pioneer SA-606</figcaption></figure>
+      <figure><a href="frontale-acceso.jpg"><img src="frontale-acceso.jpg" alt="Frontale dell’amplificatore acceso: i due strumenti di potenza illuminati di verde, con le lancette a riposo" loading="lazy"></a><figcaption>Acceso, dopo la riparazione</figcaption></figure>
+      <figure><a href="fusibili.jpg"><img src="fusibili.jpg" alt="Interno, vicino alla presa di rete: supporto dei fusibili con le scritte 1.25AT e 125mAT, sopra il trasformatore" loading="lazy"></a><figcaption>I portafusibili, con i valori scritti sul telaio</figcaption></figure>
+      <figure><a href="scheda-interna.jpg"><img src="scheda-interna.jpg" alt="Interno dell’amplificatore: scheda con resistenze di potenza, condensatori elettrolitici e cavi con guaina in tessuto" loading="lazy"></a><figcaption>L’interno dell’amplificatore</figcaption></figure>
+      <figure><a href="componenti-rotti.jpg"><img src="componenti-rotti.jpg" alt="I tre componenti tolti dal circuito di protezione: due piccoli transistor neri, il secondo scheggiato in cima, e un triac con il corpo annerito e spaccato e un terminale staccato" loading="lazy"></a><figcaption>Da sinistra: Q19, Q20 e il triac D26, tolti dalla protezione</figcaption></figure>
+      <figure><a href="condensatore-rotto.jpg"><img src="condensatore-rotto.jpg" alt="Frammenti bruciati di un condensatore a disco con la scritta 103Z A.C.250V, accanto ai resti della guaina" loading="lazy"></a><figcaption>Il condensatore di filtro andato in corto</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cosa si è evitato</h2>
+    <dl class="impatto">
+      <div><dt>Rifiuti elettronici non prodotti</dt><dd><span class="da-compilare">kg</span></dd></div>
+      <div><dt>Emissioni di CO₂ evitate (stima)</dt><dd><span class="da-compilare">kg</span></dd></div>
+    </dl>
+    <p style="margin-top:1rem">Il peso è quello dell’oggetto, misurato. Le emissioni sono una stima calcolata con il metodo del Fixometer di The Restart Project, non una misura.</p>
+  </section>
+
+  <section>
+    <h2>L’etichetta sull’oggetto</h2>
+    <p>Il codice porta a questa pagina. Il numero è scritto anche in chiaro, così la scheda si trova pure se il codice si rovina.</p>
+    <div class="etichetta">
+      <svg viewBox="-2 -2 29 29" role="img" aria-label="Codice QR per 12042.it/r/NNNN" shape-rendering="crispEdges">
+        <rect x="-2" y="-2" width="29" height="29" fill="#fff"/>
+        <!-- QR da generare quando c’è il numero -->
+      </svg>
+      <div>
+        <strong>12042</strong>
+        <span>riparato con passione</span>
+        <span class="serie">n. NNNN</span>
+        <span>12042.it/r/NNNN</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Dati aperti</h2>
+    <p>Gli stessi dati in formato Open Repair Data Standard, per chi studia la riparabilità dei prodotti.</p>
+    <details>
+      <summary>Mostra il record</summary>
+<pre id="ords">{
+  "id": "NNNN",
+  "data_provider": "12042",
+  "country": "ITA",
+  "partner_product_category": "Amplificatore",
+  "product_category": "DA COMPILARE (dall’elenco ORDS)",
+  "brand": "Pioneer",
+  "year_of_manufacture": "DA COMPILARE",
+  "problem": "Nessun suono. Circuito di protezione delle uscite guasto: triac D26 esploso, transistor Q19 e Q20 rotti, fusibile primario da 2 A invece di 1,25 A. Durante le prove è andato in corto anche il condensatore di filtro sull’ingresso di rete.",
+  "repair_status": "Fixed",
+  "repair_barrier_if_end_of_life": "",
+  "group_identifier": "12042-bra",
+  "event_date": "2026-11-16"
+}</pre>
+    </details>
+  </section>
+
+  <footer>
+    <p><a href="/">12042</a>, riparato con passione. Un gruppo di amici di Bra che rimette in funzione oggetti invece di buttarli.</p>
+    <p><span class="da-compilare">Licenza di testi e foto: da decidere.</span></p>
+  </footer>
+
+</div>
+</body>
+</html>
