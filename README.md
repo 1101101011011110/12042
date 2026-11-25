@@ -11,14 +11,15 @@ Ogni oggetto riparato porta un'etichetta con un numero e un codice QR che rimand
 | `r/0002/index.html` | Scheda n. 0002, raggiungibile da `12042.it/r/0002` |
 | `404.html` | Pagina mostrata quando una scheda non è ancora pubblicata |
 | `etichette/` | PDF delle etichette da stampare |
-| `strumenti/etichette.py` | Script che genera i PDF delle etichette |
+| `strumenti/etichette.py` | Script che genera i PDF delle etichette e l'SVG per la scheda |
+| `strumenti/font/` | Font Host Grotesk (licenza SIL OFL) |
 | `CNAME` | Dominio personalizzato per GitHub Pages |
 | `.nojekyll` | Dice a GitHub Pages di pubblicare i file così come sono |
 
 ## Aggiungere una scheda
 
 1. Copiare la cartella `r/0002` in `r/NNNN`, con il numero dell'etichetta applicata all'oggetto.
-2. In `r/NNNN/index.html` sostituire il numero `0002` in tutti i punti (titolo, timbro, etichetta, record dei dati aperti) e compilare i contenuti. Il codice QR dell'etichetta in fondo alla scheda va rigenerato per il nuovo numero.
+2. In `r/NNNN/index.html` sostituire il numero `0002` in tutti i punti (titolo, timbro, etichetta, record dei dati aperti) e compilare i contenuti. L'etichetta in fondo alla scheda si rigenera con `python strumenti/etichette.py --svg NNNN AAAA`.
 3. Mettere le foto nella stessa cartella e collegarle con `<img src="nome.jpg" alt="descrizione">`.
 4. In `index.html` aggiungere una riga al registro, la più recente in alto.
 
@@ -27,7 +28,7 @@ Regole: un numero non si riusa mai, nemmeno se la riparazione non riesce. Nelle 
 ## Stampare altre etichette
 
 ```
-pip install segno reportlab
+pip install segno reportlab fonttools
 python strumenti/etichette.py 31 60
 ```
 
