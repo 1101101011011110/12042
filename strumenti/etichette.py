@@ -33,7 +33,7 @@ def scritte(numero, anno):
     """(grassetto?, testo, x, linea di base, corpo, fine o None): fine allarga o stringe il testo fino lì."""
     return [
         (True, "12042", 8.88, 30.32, 23.83, 85.11),
-        (True, "RIPARATO CON PASSIONE", 8.9, 38.63, 6.95, 91.74),
+        (True, "RIPARA. RIUSA. RISPETTA.", 8.9, 38.63, 6.95, 91.74),
         (False, "NUMERO", 8.9, 51.04, 5.56, None),
         (False, "ANNO", 57.92, 51.04, 5.56, None),
         (True, numero, 8.9, 61.58, 10.42, None),
@@ -82,7 +82,7 @@ def svg(n, anno):
     b = BORDO; m = matrice(numero); mod = QR["lato"] / len(m)
     qr = "".join(f"M{QR['x']+c*mod:.2f} {QR['y']+r*mod:.2f}h{l*mod:.2f}v{mod:.2f}h{-l*mod:.2f}z" for c, r, l in strisce(m))
     stella = "M" + "L".join(f"{x} {y}" for x, y in STELLA) + "Z"
-    return f"""<svg class="etichetta" viewBox="0 0 {RIF_W} {RIF_H}" role="img" aria-label="Etichetta 12042, riparato con passione, numero {numero}, anno {anno}, con codice QR per 12042.it/r/{numero}">
+    return f"""<svg class="etichetta" viewBox="0 0 {RIF_W} {RIF_H}" role="img" aria-label="Etichetta 12042, ripara, riusa, rispetta, numero {numero}, anno {anno}, con codice QR per 12042.it/r/{numero}">
         <rect width="{RIF_W}" height="{RIF_H}" rx="{b['r']+b['x']}" fill="#fff"/>
         <rect x="{b['x']}" y="{b['y']}" width="{b['w']}" height="{b['h']}" rx="{b['r']}" fill="none" stroke="{BLU}" stroke-width="{b['spessore']}"/>
         <path d="M{RIGA['x1']} {RIGA['y']}H{RIGA['x2']}" stroke="{BLU}" stroke-width="{b['spessore']}"/>

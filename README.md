@@ -1,4 +1,4 @@
-# 12042, riparato con passione
+# 12042. Ripara. Riusa. Rispetta.
 
 Sito di [12042.it](https://12042.it): le schede pubbliche degli oggetti riparati a Bra.
 Ogni oggetto riparato porta un'etichetta con un numero e un codice QR che rimanda alla sua scheda.
@@ -12,7 +12,8 @@ Ogni oggetto riparato porta un'etichetta con un numero e un codice QR che rimand
 | `404.html` | Pagina mostrata quando una scheda non è ancora pubblicata |
 | `etichette/` | PDF delle etichette da stampare |
 | `strumenti/etichette.py` | Script che genera i PDF delle etichette e l'SVG per la scheda |
-| `strumenti/font/` | Font Host Grotesk (licenza SIL OFL) |
+| `strumenti/timbro.py` | Script che genera l'SVG del timbro (logo) |
+| `strumenti/font/` | Font Host Grotesk e Montserrat (licenza SIL OFL) |
 | `CNAME` | Dominio personalizzato per GitHub Pages |
 | `.nojekyll` | Dice a GitHub Pages di pubblicare i file così come sono |
 
