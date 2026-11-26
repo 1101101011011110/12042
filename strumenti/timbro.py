@@ -109,7 +109,7 @@ def svg(p=P, classe="timbro"):
         for x, y in p["stelle"])
     testo = numero(p["numero"]) + arco(p["sopra"], True) + arco(p["sotto"], False)
     return (f'<svg class="{classe}" viewBox="0 0 200 200" role="img" aria-label="Timbro 12042, ripara, riusa, rispetta, dal 2026">\n'
-            f'  <circle cx="100" cy="100" r="{n(ra+sa/2)}" fill="#fff"/>\n'
+            f'  <circle cx="100" cy="100" r="100" fill="#fff"/>\n'
             f'  <g transform="rotate({n(-p["rotazione"])} 100 100)">\n'
             f'    <circle cx="100" cy="100" r="{n(ra)}" fill="none" stroke="{BLU}" stroke-width="{n(sa)}"/>\n'
             f'    <path fill="{BLU}" d="{cerchio}{testo}"/>\n'
