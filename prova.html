@@ -12,9 +12,10 @@
   @font-face { font-family: "Host Grotesk"; font-weight: 700; font-display: swap; src: url("strumenti/font/HostGrotesk-Bold.ttf") format("truetype"); }
 
   :root {
-    --blu: #0076B0;
+    --blu: #00A4D5;        /* C85 M14 Y10 K0, convertito con il profilo ISO Coated */
+    --blu-testo: #0076B0;  /* per testo blu su fondo chiaro: l’azzurro non ha abbastanza contrasto */
     --rosso: #CD071E;
-    --su-blu: #ffffff;
+    --su-blu: #111318;
     --fondo: #f3f4f1;
     --testo: #111318;
     --grigio: #5b6070;
@@ -164,8 +165,8 @@
     display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: baseline;
     padding: 0.9rem 0.1rem 0;
   }
-  .registro .n { color: var(--blu); font-weight: 700; font-variant-numeric: tabular-nums; }
-  @media (prefers-color-scheme: dark) { .registro .n { color: #5cb8e6; } }
+  .registro .n { color: var(--blu-testo); font-weight: 700; font-variant-numeric: tabular-nums; }
+  @media (prefers-color-scheme: dark) { :root { --blu-testo: var(--blu); } }
   .registro .oggetto { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
   .registro .esito { font-size: 0.875rem; color: var(--grigio); }
   .registro .riparato .esito { color: var(--collaudo); font-weight: 700; }
@@ -209,7 +210,7 @@
     line-height: 1.15;
     overflow-wrap: anywhere;
   }
-  .posta:hover { color: var(--blu); }
+  .posta:hover { color: var(--blu-testo); }
 
   footer {
     border-top: 1px solid var(--filo);
