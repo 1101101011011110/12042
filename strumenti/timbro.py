@@ -12,7 +12,7 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 
 FONT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "font", "Montserrat-VF.ttf")
-BLU, ROSSO = "#0076B0", "#CD071E"
+BLU, ROSSO = "#00A4D5", "#CD071E"   # azzurro: C85 M14 Y10 K0, convertito con il profilo ISO Coated
 C = 100  # centro del viewBox 0 0 200 200
 
 # Misure in unità del viewBox, con il timbro dritto; alla fine tutto ruota di ROTAZIONE gradi.

@@ -17,7 +17,8 @@ import segno
 FONT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "font")
 REGOLARE = os.path.join(FONT, "HostGrotesk-Regular.ttf")
 GRASSETTO = os.path.join(FONT, "HostGrotesk-Bold.ttf")
-BLU, ROSSO = "#007EB7", "#D22329"
+BLU, ROSSO = "#00A4D5", "#D22329"   # azzurro per lo schermo, convertito da BLU_CMYK con il profilo ISO Coated
+BLU_CMYK = (0.85, 0.14, 0.10, 0)    # azzurro per la stampa: C85 M14 Y10 K0
 
 # Il disegno originale misura 171,3 x 85,61 mm. Tutte le misure sono in quel
 # riferimento (y dall'alto) e vengono scalate alla misura reale.
@@ -98,7 +99,7 @@ def pdf(primo, ultimo, anno):
     from reportlab.pdfgen import canvas
     from reportlab.lib.pagesizes import A4
     from reportlab.lib.units import mm
-    from reportlab.lib.colors import HexColor
+    from reportlab.lib.colors import HexColor, CMYKColor
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
     pdfmetrics.registerFont(TTFont("HG", REGOLARE))
@@ -112,7 +113,7 @@ def pdf(primo, ultimo, anno):
 
     def etichetta(n):
         numero = f"{n:04d}"
-        blu, rosso = HexColor(BLU), HexColor(ROSSO)
+        blu, rosso = CMYKColor(*BLU_CMYK), HexColor(ROSSO)
         b = BORDO
         c.setStrokeColor(blu); c.setLineWidth(X(b["spessore"]))
         c.roundRect(X(b["x"]), Y(b["y"]+b["h"]), X(b["w"]), X(b["h"]), X(b["r"]), stroke=1, fill=0)
