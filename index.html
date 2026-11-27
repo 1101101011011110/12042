@@ -5,32 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>12042. Ripara. Riusa. Rispetta. | Oggetti riparati a Bra</title>
 <meta name="description" content="Un gruppo di amici di Bra ripara oggetti invece di buttarli. Ogni oggetto riparato ha un numero e una scheda pubblica che racconta il lavoro fatto.">
+<meta name="robots" content="noindex">
+<!-- Prova di layout della pagina iniziale: non collegata dal sito. -->
 <style>
+  @font-face { font-family: "Host Grotesk"; font-weight: 400; font-display: swap; src: url("strumenti/font/HostGrotesk-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "Host Grotesk"; font-weight: 700; font-display: swap; src: url("strumenti/font/HostGrotesk-Bold.ttf") format("truetype"); }
+
   :root {
-    --carta: #f1f3f0;
-    --foglio: #fbfcfa;
-    --inchiostro: #1b1e2b;
-    --grigio: #5a6072;
-    --filo: #cfd4d6;
-    --timbro: #2f3a8f;
-    --collaudo: #256b4d;
-    --bozza: #8a5a00;
-    --bozza-fondo: #fbefcf;
-    --testo: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-    --segni: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --blu: #00A4D5;        /* C85 M14 Y10 K0, convertito con il profilo ISO Coated */
+    --blu-testo: #0076B0;  /* per testo blu su fondo chiaro: l’azzurro non ha abbastanza contrasto */
+    --rosso: #CD071E;
+    --su-blu: #111318;
+    --fondo: #f3f4f1;
+    --testo: #111318;
+    --grigio: #5b6070;
+    --filo: #c9cdd0;
+    --scheda: #e4e7e9;
+    --collaudo: #1f6b48;
+    --lettere: "Host Grotesk", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --margine: clamp(1rem, 3vw, 2.5rem);
   }
   @media (prefers-color-scheme: dark) {
     :root {
       color-scheme: dark;
-      --carta: #14161c;
-      --foglio: #1b1e26;
-      --inchiostro: #e7e9ef;
-      --grigio: #a2a8b8;
-      --filo: #343947;
-      --timbro: #a3adff;
+      --fondo: #000000;
+      --testo: #f2f3f5;
+      --grigio: #9ca2b1;
+      --filo: #30343d;
+      --scheda: #15171c;
       --collaudo: #7ed0a8;
-      --bozza: #f0c060;
-      --bozza-fondo: #3a2e10;
     }
   }
 
@@ -38,100 +41,197 @@
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--carta);
-    color: var(--inchiostro);
-    font-family: var(--testo);
+    background: var(--fondo);
+    color: var(--testo);
+    font-family: var(--lettere);
     font-size: 1.0625rem;
-    line-height: 1.6;
+    line-height: 1.55;
   }
-  a { color: var(--timbro); text-underline-offset: 0.15em; }
-  a:focus-visible { outline: 2px solid var(--timbro); outline-offset: 3px; }
+  a { color: inherit; text-underline-offset: 0.15em; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+  p { margin: 0 0 1rem; }
 
-  .pagina { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+  .fascia { padding-inline: var(--margine); }
 
+  /* ---------- Apertura blu con il nome a tutta larghezza ---------- */
   .apertura {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
-    align-items: center;
-    padding-bottom: 2.5rem;
-    border-bottom: 2px solid var(--inchiostro);
+    background: var(--blu);
+    color: var(--su-blu);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    padding-top: clamp(0.75rem, 2vw, 1.5rem);
+    padding-bottom: clamp(2rem, 5vw, 4rem);
   }
-  .timbro {
-    width: clamp(9rem, 34vw, 14rem);
-    height: auto;
-  }
-  h1 {
-    font-family: var(--segni);
+  .nome { container-type: inline-size; }
+  .nome h1 {
+    margin: 0;
     font-weight: 700;
-    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
-    line-height: 1.1;
+    /* "12042" in Host Grotesk Bold: inchiostro largo circa 3,02 em */
+    font-size: calc(100cqw / 3.015);
+    line-height: 0.8;
     letter-spacing: -0.02em;
-    margin: 0 0 0.8rem;
+    margin-left: -0.069em;
+    padding-top: 0.06em;
+    white-space: nowrap;
   }
-  .apertura p { margin: 0; color: var(--grigio); max-width: 26rem; }
-  @media (max-width: 34rem) {
-    .apertura { grid-template-columns: 1fr; gap: 1.25rem; }
-  }
-
-  h2 {
-    font-family: var(--segni);
-    font-weight: 700;
-    font-size: 1.375rem;
-    line-height: 1.2;
-    margin: 3rem 0 0.9rem;
-  }
-  p { margin: 0 0 1rem; max-width: 38rem; }
-
-  /* Registro delle schede: una riga per oggetto */
-  .registro { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--filo); font-family: var(--segni); }
-  .registro li { border-bottom: 1px solid var(--filo); }
-  .registro a {
-    display: grid;
-    grid-template-columns: 4.5rem 1fr auto;
-    gap: 1rem;
+  .riga-sotto {
+    display: flex;
+    justify-content: space-between;
     align-items: baseline;
-    padding: 0.9rem 0.25rem;
-    color: inherit;
-    text-decoration: none;
+    gap: 1rem;
+    margin-top: clamp(0.75rem, 2vw, 1.5rem);
+    padding-top: 0.6rem;
+    border-top: 1px solid currentColor;
+    font-size: 0.875rem;
   }
-  .registro a:hover { background: var(--foglio); }
-  .registro .n { color: var(--timbro); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .registro .oggetto { font-weight: 600; font-size: 1.125rem; }
+  .riga-sotto .motto { font-weight: 700; letter-spacing: 0.04em; }
+  .stella { color: var(--rosso); }
+  .su-blu .stella { color: #fff; }
+
+  .apertura .fondo {
+    margin-top: auto;
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+  }
+  .frase {
+    font-size: clamp(1.75rem, 4.2vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 18em;
+  }
+  .timbro { width: clamp(7rem, 17vw, 13rem); height: auto; display: block; }
+  @media (max-width: 40rem) {
+    .apertura { min-height: 0; }
+    .apertura .fondo { grid-template-columns: 1fr; }
+    .timbro { order: -1; }
+  }
+
+  /* ---------- Scritta che scorre ---------- */
+  .scorre {
+    overflow: hidden;
+    white-space: nowrap;
+    border-block: 1px solid var(--filo);
+    padding-block: 0.9rem;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    letter-spacing: 0.02em;
+  }
+  .scorre .nastro { display: inline-flex; animation: scorri 28s linear infinite; }
+  .scorre span { padding-right: 0.8em; }
+  .scorre.grande { font-size: clamp(3.5rem, 13vw, 11rem); font-weight: 400; line-height: 1; border: 0; padding-block: 1rem 0; letter-spacing: -0.02em; }
+  .scorre.grande .nastro { animation-duration: 22s; }
+  @keyframes scorri { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .scorre .nastro { animation: none; } }
+
+  /* ---------- Sezioni ---------- */
+  .sezione { padding-block: clamp(4rem, 10vw, 8rem); }
+  .titolo-sezione {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    border-bottom: 1px solid var(--filo);
+    padding-bottom: 0.6rem;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: 0.875rem;
+  }
+  .titolo-sezione h2 { font-size: 0.875rem; font-weight: 400; margin: 0; }
+  .titolo-sezione h2::before { content: "● "; color: var(--rosso); }
+  .titolo-sezione span { color: var(--grigio); }
+
+  .grande-testo {
+    font-size: clamp(1.75rem, 4.2vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 14em;
+  }
+
+  /* ---------- Registro: una scheda per oggetto ---------- */
+  .registro {
+    list-style: none; margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+    gap: clamp(1rem, 2.5vw, 2rem);
+  }
+  .registro a { display: block; text-decoration: none; color: inherit; }
+  .registro figure { margin: 0; border-radius: clamp(0.75rem, 1.5vw, 1.25rem); overflow: hidden; background: var(--scheda); aspect-ratio: 4 / 3; }
+  .registro img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .registro a:hover img { transform: scale(1.03); }
+  @media (prefers-reduced-motion: reduce) { .registro img { transition: none; } }
+  .registro .dida {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: baseline;
+    padding: 0.9rem 0.1rem 0;
+  }
+  .registro .n { color: var(--blu-testo); font-weight: 700; font-variant-numeric: tabular-nums; }
+  @media (prefers-color-scheme: dark) { :root { --blu-testo: var(--blu); } }
+  .registro .oggetto { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
   .registro .esito { font-size: 0.875rem; color: var(--grigio); }
-  .registro .riparato .esito { color: var(--collaudo); font-weight: 600; }
+  .registro .riparato .esito { color: var(--collaudo); font-weight: 700; }
+
+  /* ---------- Come funziona: frase a sinistra, due colonne a destra ---------- */
+  .due-parti {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 6rem);
+  }
+  .colonne { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  .colonne h3 { font-size: 1.5rem; font-weight: 400; margin: 0 0 0.75rem; letter-spacing: -0.01em; }
+  .colonne p { color: var(--grigio); max-width: 34rem; }
+  .elenco { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; font-size: 0.9375rem; }
+  .elenco li { border-top: 1px solid var(--filo); padding: 0.55rem 0; }
+  .elenco li::before { content: "•"; margin-right: 0.6em; color: var(--rosso); }
+  @media (max-width: 52rem) {
+    .due-parti { grid-template-columns: 1fr; }
+  }
 
   .nota {
-    background: var(--foglio);
     border: 1px solid var(--filo);
-    padding: 1rem 1.1rem;
-    margin: 1.25rem 0 0;
-    max-width: 38rem;
+    border-radius: 0.75rem;
+    padding: 1rem 1.15rem;
+    margin-top: 1.5rem;
+    max-width: 34rem;
+    color: var(--testo);
   }
   .nota p:last-child { margin-bottom: 0; }
 
-  .da-compilare {
-    background: var(--bozza-fondo);
-    color: var(--bozza);
-    border-bottom: 1px dashed var(--bozza);
-    padding: 0 0.2em;
+  /* ---------- Chiusura ---------- */
+  .chiusura { padding-bottom: clamp(3rem, 8vw, 6rem); }
+  .chiusura .grande-testo { margin-top: clamp(2rem, 5vw, 4rem); }
+  .posta {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: clamp(1.5rem, 4.2vw, 3.5rem);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
   }
+  .posta:hover { color: var(--blu-testo); }
 
   footer {
-    margin-top: 4rem;
-    padding-top: 1.25rem;
-    border-top: 2px solid var(--inchiostro);
-    font-family: var(--segni);
-    font-size: 0.875rem;
+    border-top: 1px solid var(--filo);
+    padding-block: 1.25rem 2rem;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem;
+    font-size: 0.8125rem;
     color: var(--grigio);
   }
-  footer p { margin-bottom: 0.4rem; }
+  footer p { margin: 0; }
 </style>
 </head>
 <body>
-<div class="pagina">
 
-  <header class="apertura">
+<header class="apertura fascia">
+  <div class="nome"><h1 aria-label="12042">12042</h1></div>
+  <div class="riga-sotto">
+    <span class="motto">RIPARA. RIUSA. RISPETTA.</span>
+    <a href="#scrivici">Scrivici ↓</a>
+  </div>
+  <div class="fondo">
+    <p class="frase">Siamo un gruppo di amici di Bra. Ripariamo oggetti invece di buttarli.</p>
     <svg class="timbro" viewBox="0 0 200 200" role="img" aria-label="Timbro 12042, ripara, riusa, rispetta, dal 2026">
       <circle cx="100" cy="100" r="100" fill="#fff"/>
       <g transform="rotate(-11.14 100 100)">
@@ -140,57 +240,96 @@
         <path fill="#CD071E" d="M37.31 99.88L35.05 101.82L35.5 105.4L33.07 103.91L29.71 105.4L30.35 102.66L27.91 99.88L30.91 99.59L32.61 96.46L33.68 99ZM175 99.88L172.74 101.82L173.19 105.4L170.76 103.91L167.4 105.4L168.04 102.66L165.6 99.88L168.6 99.59L170.3 96.46L171.37 99Z"/>
       </g>
     </svg>
-    <div>
-      <h1>Oggetti riparati invece che buttati</h1>
-      <p>Siamo un gruppo di amici di Bra. Rimettiamo in funzione amplificatori, televisori, strumenti musicali e altri apparecchi che altrimenti finirebbero tra i rifiuti.</p>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <section>
-    <h2>Ogni oggetto ha la sua scheda</h2>
-    <p>Quando finiamo una riparazione incolliamo sull’oggetto un’etichetta con un numero e un codice QR. Il codice porta a una pagina che racconta cosa aveva l’oggetto, cosa abbiamo fatto, quali componenti abbiamo cambiato e cosa abbiamo lasciato com’era.</p>
-    <p>La scheda resta pubblica. Serve a chi usa l’oggetto, e a chi un giorno dovrà rimetterci mano.</p>
-  </section>
+<div class="scorre" aria-hidden="true">
+  <div class="nastro"><span>RIPARA.</span><span>RIUSA.</span><span>RISPETTA.</span><span class="stella">★</span><span>RIPARA.</span><span>RIUSA.</span><span>RISPETTA.</span><span class="stella">★</span><span>RIPARA.</span><span>RIUSA.</span><span>RISPETTA.</span><span class="stella">★</span><span>RIPARA.</span><span>RIUSA.</span><span>RISPETTA.</span><span class="stella">★</span><span>RIPARA.</span><span>RIUSA.</span><span>RISPETTA.</span><span class="stella">★</span><span>RIPARA.</span><span>RIUSA.</span><span>RISPETTA.</span><span class="stella">★</span></div>
+</div>
 
-  <section>
-    <h2>Le schede</h2>
+<main>
+  <section class="sezione fascia" aria-labelledby="t-schede">
+    <div class="titolo-sezione"><h2 id="t-schede">Le schede</h2><span>2 oggetti, 2 riparati</span></div>
     <!-- Una riga per oggetto, in ordine di numero: la nuova va in fondo.
          A lavoro riuscito: <li class="riparato"> e come esito "riparato". -->
     <ul class="registro">
       <li class="riparato">
         <a href="r/0001/">
-          <span class="n">0001</span>
-          <span class="oggetto">Amplificatore Pioneer SA-606</span>
-          <span class="esito">riparato</span>
+          <figure><img src="r/0001/amplificatore.jpg" alt="Amplificatore Pioneer SA-606 color argento appoggiato su un tavolo bianco, visto di tre quarti" loading="lazy" width="1400" height="1050"></figure>
+          <div class="dida">
+            <span class="n">0001</span>
+            <span class="oggetto">Amplificatore Pioneer SA-606</span>
+            <span class="esito">riparato</span>
+          </div>
         </a>
       </li>
       <li class="riparato">
         <a href="r/0002/">
-          <span class="n">0002</span>
-          <span class="oggetto">Apricancello CAME ZA3P</span>
-          <span class="esito">riparato</span>
+          <figure><img src="r/0002/scheda-fronte.jpg" alt="La scheda di comando CAME ZA3P vista dal lato componenti" loading="lazy" width="1400" height="1050"></figure>
+          <div class="dida">
+            <span class="n">0002</span>
+            <span class="oggetto">Apricancello CAME ZA3P</span>
+            <span class="esito">riparato</span>
+          </div>
         </a>
       </li>
     </ul>
   </section>
 
-  <section>
-    <h2>Cosa aspettarsi</h2>
-    <p>Ripariamo per passione, nel tempo libero, senza farci pagare. Per questo non possiamo dare una garanzia: a volte la riparazione riesce, a volte no, e in ogni scheda scriviamo con chiarezza come è andata.</p>
-    <div class="nota">
-      <p>Controlliamo la sicurezza degli apparecchi prima di riconsegnarli e riportiamo le verifiche nella scheda. Gli impianti installati restano di competenza di un installatore abilitato.</p>
+  <section class="sezione fascia" aria-labelledby="t-come">
+    <div class="titolo-sezione"><h2 id="t-come">Come funziona</h2></div>
+    <div class="due-parti">
+      <p class="grande-testo">Ogni oggetto riparato ha un numero e una scheda pubblica.</p>
+      <div class="colonne">
+        <div>
+          <h3>L’etichetta</h3>
+          <p>Quando finiamo una riparazione incolliamo sull’oggetto un’etichetta con un numero e un codice QR. Il codice porta alla sua scheda.</p>
+          <ul class="elenco">
+            <li>Numero</li><li>Anno</li><li>Codice QR</li><li>Indirizzo della scheda</li>
+          </ul>
+        </div>
+        <div>
+          <h3>La scheda</h3>
+          <p>Racconta cosa aveva l’oggetto, cosa abbiamo fatto, quali componenti abbiamo cambiato e cosa abbiamo lasciato com’era. Serve a chi usa l’oggetto, e a chi un giorno dovrà rimetterci mano.</p>
+          <ul class="elenco">
+            <li>Il guasto</li><li>La diagnosi</li><li>L’intervento</li><li>La prova</li>
+            <li>Componenti sostituiti</li><li>Verifiche di sicurezza</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Scrivici</h2>
-    <p>repair.12042@gmail.com</p>
+  <section class="sezione fascia" aria-labelledby="t-aspettarsi">
+    <div class="titolo-sezione"><h2 id="t-aspettarsi">Cosa aspettarsi</h2></div>
+    <div class="due-parti">
+      <p class="grande-testo">Nel tempo libero, per passione.</p>
+      <div class="colonne">
+        <div>
+          <p>Ripariamo per passione, nel tempo libero, senza farci pagare. Per questo non possiamo dare una garanzia: a volte la riparazione riesce, a volte no, e in ogni scheda scriviamo con chiarezza come è andata.</p>
+          <div class="nota">
+            <p>Controlliamo la sicurezza degli apparecchi prima di riconsegnarli e riportiamo le verifiche nella scheda. Gli impianti installati restano di competenza di un installatore abilitato.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+</main>
 
-  <footer>
-    <p>12042. Ripara. Riusa. Rispetta. Il numero è il codice postale di Bra, dove tutto è cominciato.</p>
-  </footer>
+<section class="chiusura" id="scrivici" aria-labelledby="t-scrivici">
+  <div class="scorre grande" aria-hidden="true">
+    <div class="nastro"><span>SCRIVICI</span><span class="stella">★</span><span>SCRIVICI</span><span class="stella">★</span><span>SCRIVICI</span><span class="stella">★</span><span>SCRIVICI</span><span class="stella">★</span><span>SCRIVICI</span><span class="stella">★</span><span>SCRIVICI</span><span class="stella">★</span></div>
+  </div>
+  <div class="fascia">
+    <h2 id="t-scrivici" class="grande-testo" style="font-weight:400">Scrivici.</h2>
+    <a class="posta" href="mailto:repair.12042@gmail.com">repair.12042@gmail.com</a>
+  </div>
+</section>
 
-</div>
+<footer class="fascia">
+  <p>12042. Ripara. Riusa. Rispetta. Il numero è il codice postale di Bra, dove tutto è cominciato.</p>
+  <p>Dal 2026</p>
+</footer>
+
 </body>
 </html>
